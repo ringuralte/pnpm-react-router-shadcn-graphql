@@ -1,5 +1,14 @@
+import getGraphqlClient from "~/lib/get-graphql-client";
 import logoDark from "./logo-dark.svg";
 import logoLight from "./logo-light.svg";
+import { GET_USERS } from "~/graphql/get_users";
+
+
+export async function loader() {
+  const gqlClient = getGraphqlClient()
+  const response = await gqlClient.request(GET_USERS)
+
+}
 
 export function Welcome() {
   return (
