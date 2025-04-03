@@ -1,6 +1,6 @@
 /* eslint-disable */
 import * as types from './graphql';
-import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
+import type { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 
 /**
  * Map of all GraphQL operations in the project.
@@ -14,10 +14,10 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Learn more about it here: https://the-guild.dev/graphql/codegen/plugins/presets/preset-client#reducing-bundle-size
  */
 type Documents = {
-    "\n  query GetMe {\n    getMe {\n      id\n    }\n  }\n": typeof types.GetMeDocument,
+    "\n  query GetMe {\n    getMe {\n      user {\n        id\n      }\n    }\n  }\n": typeof types.GetMeDocument,
 };
 const documents: Documents = {
-    "\n  query GetMe {\n    getMe {\n      id\n    }\n  }\n": types.GetMeDocument,
+    "\n  query GetMe {\n    getMe {\n      user {\n        id\n      }\n    }\n  }\n": types.GetMeDocument,
 };
 
 /**
@@ -37,7 +37,7 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  query GetMe {\n    getMe {\n      id\n    }\n  }\n"): (typeof documents)["\n  query GetMe {\n    getMe {\n      id\n    }\n  }\n"];
+export function graphql(source: "\n  query GetMe {\n    getMe {\n      user {\n        id\n      }\n    }\n  }\n"): (typeof documents)["\n  query GetMe {\n    getMe {\n      user {\n        id\n      }\n    }\n  }\n"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};
