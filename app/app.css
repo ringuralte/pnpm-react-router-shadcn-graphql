@@ -132,3 +132,15 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+input[type='date']::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+input[type='password']::-ms-reveal {
+  filter: invert(1);
+}
+
+input[type='password']::-webkit-contacts-auto-fill-button {
+  filter: invert(1);
+}
