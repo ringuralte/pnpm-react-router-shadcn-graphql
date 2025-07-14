@@ -1,13 +1,13 @@
 export default function extractXsrfFromCookie(
-  cookieString: string
+  cookieString: string,
 ): string | null {
-  const cookies = cookieString.split("; ")
+  const cookies = cookieString.split('; ')
 
   let xsrfToken: string | null = null
 
   for (const cookie of cookies) {
-    if (cookie.startsWith("XSRF-TOKEN=")) {
-      xsrfToken = cookie.substring("XSRF-TOKEN=".length)
+    if (cookie.startsWith('XSRF-TOKEN=')) {
+      xsrfToken = cookie.substring('XSRF-TOKEN='.length)
       break
     }
   }

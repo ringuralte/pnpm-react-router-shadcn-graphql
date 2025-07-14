@@ -3,9 +3,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "react-router build",
+    "build:production": "react-router build",
+    "build:staging": "NODE_ENV=test react-router build",
     "dev": "react-router dev",
-    "start": "react-router-serve ./build/server/index.js",
+    "start:production": "PORT=3000 react-router-serve ./build/server/index.js",
+    "start:staging": "NODE_ENV=test PORT=3001 react-router-serve ./build/server/index.js",
     "typecheck": "react-router typegen && tsc",
     "codegen": "graphql-codegen --config codegen.ts",
     "prepare": "husky"
